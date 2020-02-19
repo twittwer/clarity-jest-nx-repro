@@ -17,6 +17,13 @@
     "clr-testing-repro-e2e": {
       "tags": [],
       "implicitDependencies": ["clr-testing-repro"]
+    },
+    "app": {
+      "tags": []
+    },
+    "app-e2e": {
+      "tags": [],
+      "implicitDependencies": ["app"]
     }
   }
 }
