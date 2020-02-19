@@ -21,8 +21,15 @@
               "apps/clr-testing-repro/src/favicon.ico",
               "apps/clr-testing-repro/src/assets"
             ],
-            "styles": ["apps/clr-testing-repro/src/styles.css"],
-            "scripts": []
+            "styles": [
+              "node_modules/@clr/icons/clr-icons.min.css",
+              "node_modules/@clr/ui/clr-ui.min.css",
+              "apps/clr-testing-repro/src/styles.css"
+            ],
+            "scripts": [
+              "./node_modules/@webcomponents/custom-elements/custom-elements.min.js",
+              "./node_modules/@clr/icons/clr-icons.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -137,8 +144,15 @@
             "tsConfig": "apps/app/tsconfig.app.json",
             "aot": true,
             "assets": ["apps/app/src/favicon.ico", "apps/app/src/assets"],
-            "styles": ["apps/app/src/styles.css"],
-            "scripts": []
+            "styles": [
+              "node_modules/@clr/icons/clr-icons.min.css",
+              "node_modules/@clr/ui/clr-ui.min.css",
+              "apps/app/src/styles.css"
+            ],
+            "scripts": [
+              "./node_modules/@webcomponents/custom-elements/custom-elements.min.js",
+              "./node_modules/@clr/icons/clr-icons.min.js"
+            ]
           },
           "configurations": {
             "production": {
