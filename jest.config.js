@@ -1,8 +1,9 @@
-const esModules = ['@agm', 'ngx-cookie-service', '@clr', 'lit-element', 'lit-html', 'ramda'].join('|');
+const esModules = ['@clr', 'lit-element', 'lit-html', 'ramda'].join('|');
 module.exports = {
   testMatch: ['**/+(*.)+(spec|test).+(ts|js)?(x)'],
   transform: {
-    '^.+\\.(ts|js|html)$': 'ts-jest'
+    '^.+\\.js?$': 'babel-jest',
+    '^.+\\.(ts|html)$': 'ts-jest'
   },
   transformIgnorePatterns: [`/node_modules/(?!${esModules})`],
   resolver: '@nrwl/jest/plugins/resolver',
