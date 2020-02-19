@@ -1,0 +1,22 @@
+{
+  "npmScope": "clr-repro",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "clr-testing-repro": {
+      "tags": []
+    },
+    "clr-testing-repro-e2e": {
+      "tags": [],
+      "implicitDependencies": ["clr-testing-repro"]
+    }
+  }
+}

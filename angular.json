@@ -1,0 +1,137 @@
+{
+  "version": 1,
+  "projects": {
+    "clr-testing-repro": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "apps/clr-testing-repro",
+      "sourceRoot": "apps/clr-testing-repro/src",
+      "prefix": "clr-repro",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/clr-testing-repro",
+            "index": "apps/clr-testing-repro/src/index.html",
+            "main": "apps/clr-testing-repro/src/main.ts",
+            "polyfills": "apps/clr-testing-repro/src/polyfills.ts",
+            "tsConfig": "apps/clr-testing-repro/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/clr-testing-repro/src/favicon.ico",
+              "apps/clr-testing-repro/src/assets"
+            ],
+            "styles": ["apps/clr-testing-repro/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/clr-testing-repro/src/environments/environment.ts",
+                  "with": "apps/clr-testing-repro/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "clr-testing-repro:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "clr-testing-repro:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "clr-testing-repro:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/clr-testing-repro/tsconfig.app.json",
+              "apps/clr-testing-repro/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/clr-testing-repro/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/clr-testing-repro/jest.config.js",
+            "tsConfig": "apps/clr-testing-repro/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/clr-testing-repro/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "clr-testing-repro-e2e": {
+      "root": "apps/clr-testing-repro-e2e",
+      "sourceRoot": "apps/clr-testing-repro-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/clr-testing-repro-e2e/cypress.json",
+            "tsConfig": "apps/clr-testing-repro-e2e/tsconfig.e2e.json",
+            "devServerTarget": "clr-testing-repro:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "clr-testing-repro:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/clr-testing-repro-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/clr-testing-repro-e2e/**"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "clr-testing-repro"
+}
