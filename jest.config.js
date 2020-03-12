@@ -1,12 +1,11 @@
-const esModules = ['@clr', 'lit-element', 'lit-html', 'ramda'].join('|');
 module.exports = {
-  testMatch: ['**/+(*.)+(spec|test).+(ts|js)?(x)'],
   transform: {
     '^.+\\.js?$': 'babel-jest',
     '^.+\\.(ts|html)$': 'ts-jest'
   },
-  transformIgnorePatterns: [`/node_modules/(?!${esModules})`],
+  transformIgnorePatterns: ['node_modules/(?!@clr/core|lit-element|lit-html|ramda)'],
   resolver: '@nrwl/jest/plugins/resolver',
   moduleFileExtensions: ['ts', 'js', 'html'],
+  collectCoverage: true,
   coverageReporters: ['html']
 };
