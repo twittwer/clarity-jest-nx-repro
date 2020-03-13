@@ -1,5 +1,8 @@
 <clr-alerts>
-  <clr-alert *ngFor="let alert of alerts" [clrAlertAppLevel]="true">
+  <clr-alert
+    *ngFor="let alert of [{ message: 'Test' }]"
+    [clrAlertAppLevel]="true"
+  >
     <clr-alert-item>
       {{ alert.message }}
     </clr-alert-item>
