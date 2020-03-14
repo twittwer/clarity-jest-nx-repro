@@ -1,7 +1,10 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "allowJs": true,
+    //    "allowJs": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    //
     "rootDir": ".",
     "sourceMap": true,
     "declaration": false,

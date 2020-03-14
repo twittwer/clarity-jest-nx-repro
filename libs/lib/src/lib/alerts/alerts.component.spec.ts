@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ClarityModule } from '@clr/angular';
+import { ClarityModule, ClrAlert, ClrAlertItem, ClrAlerts } from '@clr/angular';
 
 import { AlertsComponent } from './alerts.component';
 
@@ -11,7 +11,11 @@ describe('AlertsComponent', () => {
     TestBed.configureTestingModule({
       imports: [ClarityModule],
       declarations: [AlertsComponent]
-    }).compileComponents();
+    })
+      .overrideTemplate(ClrAlerts, '')
+      .overrideTemplate(ClrAlert, '')
+      .overrideTemplate(ClrAlertItem, '')
+      .compileComponents();
   }));
 
   beforeEach(() => {
